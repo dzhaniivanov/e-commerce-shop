@@ -62,9 +62,15 @@ const Right = styled.div`
     padding: 20px;
 `;
 
-const ContactItem = styled.div``;
+const ContactItem = styled.div`
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+`;
 
-const Payment=styled.img``;
+const Payment = styled.img`
+    width:50%;
+`;
 
 
 const Footer = () => {
@@ -105,10 +111,10 @@ const Footer = () => {
             </Center>
             <Right>
                 <Title>Contact</Title>
-                <ContactItem><Room />New York,USA</ContactItem>
-                <ContactItem><Phone />+1 234 56 78</ContactItem>
-                <ContactItem><MailOutline />shop@gmail.com</ContactItem>
-                <Payment src="https://i.ibb.co/Qfvn4z6/payment.png"/>
+                <ContactItem><Room style={{marginRight:"10px"}}/>New York,USA</ContactItem>
+                <ContactItem><Phone style={{marginRight:"10px"}}/>+1 234 56 78</ContactItem>
+                <ContactItem><MailOutline style={{marginRight:"10px"}} />shop@gmail.com</ContactItem>
+                <Payment src="https://i.ibb.co/Qfvn4z6/payment.png" />
             </Right>
         </Container>
     )
