@@ -39,8 +39,8 @@ const TopButton = styled.button`
     font-weight: 600;
     cursor:pointer;
     border:${props => props.type === "filled" && "none"};
-    background-color:${props => props.type === "filled" ? "black" : "transparent"};
-    color:${props => props.type === "filled" && "white"};
+    background-color:${(props) => props.type === "filled" ? "black" : "transparent"};
+    color:${(props) => props.type === "filled" && "white"};
 
 `;
 
@@ -188,12 +188,15 @@ const Cart = () => {
                     tokenId: stripeToken.id,
                     amount: 500,
                 })
-                history.push("/success", { data: res.data })
+                history.push("/success", {
+                    stripeData: res.data,
+                    products: cart,
+                })
             } catch (error) {
-
+                console.log(error);
             }
         };
-        stripeToken &&  makeRequest();
+        stripeToken && makeRequest();
     }, [stripeToken, cart.total, history])
 
     return (

@@ -11,10 +11,12 @@ import Product from './pages/Product';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Cart from './pages/Cart';
+import Success from './pages/Success';
+import { useSelector } from 'react-redux';
 
 
 function App() {
-  const user = true;
+  const user = useSelector((state) => state.user.currentUser);
 
 
   return (
@@ -32,12 +34,15 @@ function App() {
         <Route path="/cart">
           <Cart />
         </Route>
+        <Route path="/success">
+          <Success />
+        </Route>
         <Route path="/login">
           {user ? <Redirect to="/" /> : <Login />}
           <Login />
         </Route>
         <Route path="/register">
-        {user ? <Redirect to="/" /> : <Register />}
+          {user ? <Redirect to="/" /> : <Register />}
           <Register />
         </Route>
 
