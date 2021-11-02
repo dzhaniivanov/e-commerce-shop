@@ -1,5 +1,5 @@
 import "./User.css";
-import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid } from "@material-ui/icons";
+import { CalendarToday, LocationSearching, MailOutline, PermIdentity, PhoneAndroid, Publish } from "@material-ui/icons";
 
 const User = () => {
     return (
@@ -38,11 +38,46 @@ const User = () => {
                         </div>
                         <div className="userShowInfo">
                             <LocationSearching className="userShowIcon" />
-                            <span className="userShowInfoTitle">Tolbuhin</span>
+                            <span className="userShowInfoTitle">Tolbuhin | Bulgaria</span>
                         </div>
                     </div>
                 </div>
-                <div className="userUpdate"></div>
+                <div className="userUpdate">
+                    <span className="userUpdateTitle">Edit</span>
+                    <form className="userUpdateForm">
+                        <div className="userUpdateLeft">
+                            <div className="userUpdateItem">
+                                <label>Username</label>
+                                <input type="text" placeholder="annabeck99" className="userUpdateInput" />
+                            </div>
+                            <div className="userUpdateItem">
+                                <label>Full Name</label>
+                                <input type="text" placeholder="anna becker" className="userUpdateInput" />
+                            </div>
+                            <div className="userUpdateItem">
+                                <label>Email</label>
+                                <input type="text" placeholder="anna@gmail.com" className="userUpdateInput" />
+                            </div>
+                            <div className="userUpdateItem">
+                                <label>Phone</label>
+                                <input type="text" placeholder="+32 592 23832" className="userUpdateInput" />
+                            </div>
+                            <div className="userUpdateItem">
+                                <label>Adress</label>
+                                <input type="text" placeholder="Tolbuhin | Bulgaria" className="userUpdateInput" />
+                            </div>
+                        </div>
+                        <div className="userUpdateRight">
+                            <div className="userUpdateUpload">
+                                <img src="https://images.unsplash.com/photo-1633113087654-c49c686c2cdf?ixid=MnwxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHwxNnx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60" alt="" className="userUpdateImg" />
+                                <label htmlFor="file"><Publish className="userUpdateIcon" /></label>
+                                <input type="file" id="file" style={{ display: "none" }} />
+                            </div>
+                            <button className="userUpdateButton">Update</button>
+                        </div>
+
+                    </form>
+                </div>
             </div>
         </div>
     )
