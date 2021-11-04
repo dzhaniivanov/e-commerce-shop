@@ -39,7 +39,7 @@ const WidgetLg = () => {
                     <th className="widigetLgTh">Status</th>
                 </tr>
                 {orders.map((order) => (
-                    <tr className="widgetLgTr">
+                    <tr className="widgetLgTr" key={order._id}>
                         <td className="widgetLgUser">
                             <span className="widgetLgName">{order.userId}</span>
                         </td>
@@ -53,5 +53,7 @@ const WidgetLg = () => {
         </div>
     )
 }
+
+
 
 export default WidgetLg;
