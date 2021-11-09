@@ -10,7 +10,7 @@ import {
 import UserList from "./pages/UserList/UserList";
 import User from "./pages/User/User";
 import NewUser from "./pages/NewUser/NewUser";
-import ProductList from "./pages/NewUser/ProductList/ProductList";
+import ProductList from "./pages/ProductList/ProductList";
 import Product from "./pages/Product/Product";
 import NewProduct from "./pages/NewProduct/NewProduct";
 import Login from "./pages/Login/Login";
