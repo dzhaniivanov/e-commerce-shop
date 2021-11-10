@@ -1,7 +1,6 @@
 import "./Product.css";
 import { Link, useLocation } from "react-router-dom";
 import Chart from "../../components/Chart/Chart";
-import { productData } from "../../dummyData";
 import { Publish } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 import { useEffect, useMemo, useState } from "react";
@@ -12,7 +11,7 @@ const Product = () => {
     const productId = location.pathname.split("/")[2];
     const [pStats, setPStats] = useState([]);
 
-    const product = useSelector((state) => state.product.products.find((product => product._id === productId)));
+    const product = useSelector((state) => state.product.products.find(((product) => product._id === productId)));
 
     const MONTHS = useMemo(
         () => [
@@ -36,7 +35,10 @@ const Product = () => {
         const getStats = async () => {
             try {
                 const res = await userRequest.get("orders/income?pid=" + productId);
-                res.data.map((item) =>
+                const list = res.data.sort((a, b) => {
+                    return a._id - b._id
+                })
+                list.map((item) =>
                     setPStats((prev) => [
                         ...prev,
                         { name: MONTHS[item._id - 1], Sales: item.total },
@@ -64,7 +66,7 @@ const Product = () => {
                 </div>
                 <div className="productTopRight">
                     <div className="productInfoTop">
-                        <img src={product.img} />
+                        <img src={product.img} className="productInfoImg" />
                         <span className="productName">{product.title}</span>
                     </div>
                     <div className="productInfoBottom">
@@ -95,14 +97,14 @@ const Product = () => {
                         <input type="text" placeholder={product.price} />
                         <label>In Stock</label>
                         <select name="inStock" id="inStock">
-                            <option value="yes">Yes</option>
-                            <option value="no">No</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
                         </select>
                     </div>
                     <div className="productFormRight">
                         <div className="productUpload">
-                            <img src={product.img} />
-                            <label for="file">
+                            <img src={product.img} className="productUploadImg" />
+                            <label htmlFor="file">
                                 <Publish />
                             </label>
                             <input type="file" id="file" style={{ display: "none" }} />
