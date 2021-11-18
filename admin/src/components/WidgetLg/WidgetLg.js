@@ -32,28 +32,27 @@ const WidgetLg = () => {
         <div className="widgetLg">
             <h3 className="widgetLgTitle">Latest Transactions</h3>
             <table className="widgetLgTable">
-                <tr className="widgetLgTr">
-                    <th className="widigetLgTh">Customer</th>
-                    <th className="widigetLgTh">Date</th>
-                    <th className="widigetLgTh">Amount</th>
-                    <th className="widigetLgTh">Status</th>
-                </tr>
-                {orders.map((order) => (
-                    <tr className="widgetLgTr" key={order._id}>
-                        <td className="widgetLgUser">
-                            <span className="widgetLgName">{order.userId}</span>
-                        </td>
-                        <td className="widgetLgDate">{format(order.createdAt)}</td>
-                        <td className="widgetLgAmount">{order.amount}</td>
-                        <td className="widgetLgStatus"><Button type={order.status} /></td>
+                    <tr className="widgetLgTr">
+                        <th className="widigetLgTh">Customer</th>
+                        <th className="widigetLgTh">Date</th>
+                        <th className="widigetLgTh">Amount</th>
+                        <th className="widigetLgTh">Status</th>
                     </tr>
+                    {orders.map((order) => (
+                        <tr className="widgetLgTr" key={order._id}>
+                            <td className="widgetLgUser">
+                                <span className="widgetLgName">{order.userId}</span>
+                            </td>
+                            <td className="widgetLgDate">{format(order.createdAt)}</td>
+                            <td className="widgetLgAmount">{order.amount}</td>
+                            <td className="widgetLgStatus"><Button type={order.status} /></td>
+                        </tr>
                 ))}
-
             </table>
         </div>
     )
 }
 
- 
+
 
 export default WidgetLg;

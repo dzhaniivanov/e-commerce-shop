@@ -66,7 +66,6 @@ const MenuItem = styled.div`
     cursor:pointer;
     margin-left:25px;
     ${mobile({ fontSize: "12px", marginLeft: "10px" })}
-    
 `;
 
 
@@ -85,12 +84,18 @@ const Navbar = () => {
                         <Search style={{ color: "gray", fontSize: 16 }} />
                     </SearchContainer>
                 </Left>
-                    <Center>
+                <Center>
+                    <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
                         <Logo>Shop</Logo>
-                    </Center>
+                    </Link>
+                </Center>
                 <Right>
-                    <MenuItem>REGISTER</MenuItem>
-                    <MenuItem>LOGIN</MenuItem>
+                    <Link to="/register" style={{ textDecoration: "none", color: "inherit" }}>
+                        <MenuItem>REGISTER</MenuItem>
+                    </Link>
+                    <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+                        <MenuItem>LOGIN</MenuItem>
+                    </Link>
                     <Link to="/cart">
                         <MenuItem>
                             <Badge badgeContent={quantity} color="primary">
