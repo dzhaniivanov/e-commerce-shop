@@ -66,12 +66,13 @@ const MenuItem = styled.div`
     cursor:pointer;
     margin-left:25px;
     ${mobile({ fontSize: "12px", marginLeft: "10px" })}
-`;
+`;;
 
 
 const Navbar = () => {
 
     const quantity = useSelector(state => state.cart.quantity);
+    const username = useSelector(state => state.user.currentUser?.username);
 
 
     return (
@@ -89,21 +90,37 @@ const Navbar = () => {
                         <Logo>Shop</Logo>
                     </Link>
                 </Center>
-                <Right>
-                    <Link to="/register" style={{ textDecoration: "none", color: "inherit" }}>
-                        <MenuItem>REGISTER</MenuItem>
-                    </Link>
-                    <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
-                        <MenuItem>LOGIN</MenuItem>
-                    </Link>
-                    <Link to="/cart">
-                        <MenuItem>
-                            <Badge badgeContent={quantity} color="primary">
-                                <ShoppingCartOutlined />
-                            </Badge>
-                        </MenuItem>
-                    </Link>
-                </Right>
+                {
+                    !username ?
+                        <Right>
+                            <Link to="/register" style={{ textDecoration: "none", color: "inherit" }}>
+                                <MenuItem>REGISTER</MenuItem>
+                            </Link>
+                            <Link to="/login" style={{ textDecoration: "none", color: "inherit" }}>
+                                <MenuItem>LOGIN</MenuItem>
+                            </Link>
+                            <Link to="/cart">
+                                <MenuItem>
+                                    <Badge badgeContent={quantity} color="primary">
+                                        <ShoppingCartOutlined />
+                                    </Badge>
+                                </MenuItem>
+                            </Link>
+                        </Right>
+                        :
+                        <Right>
+                            <Link to="/profile" style={{ textDecoration: "none", color: "inherit" }}>
+                                <MenuItem>HELLO AGAIN {username}</MenuItem>
+                            </Link>
+                            <Link to="/cart">
+                                <MenuItem>
+                                    <Badge badgeContent={quantity} color="primary">
+                                        <ShoppingCartOutlined />
+                                    </Badge>
+                                </MenuItem>
+                            </Link>
+                        </Right>
+                }
             </Wrapper>
         </Container>
     )
